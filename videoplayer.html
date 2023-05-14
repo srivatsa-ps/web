@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="videoPlayer">
+<head>
+<title>AngularJS Video Player</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="videoPlayerCtrl">
+<h1>AngularJS Video Player</h1>
+<video ng-src="{{videoUrl}}" height=200 controls></video>
+<button ng-click="play()">Play</button>
+<button ng-click="pause()">Pause</button>
+<button ng-click="stop()">Stop</button>
+<script>
+var app = angular.module("videoPlayer", []);
+app.controller("videoPlayerCtrl", function($scope) {
+$scope.videoUrl = "video1.mp4";
+var video = document.getElementsByTagName("video")[0];
+$scope.play = function() {
+video.play();
+};
+$scope.pause = function() {
+video.pause();
+};
+$scope.stop = function() {
+video.currentTime = 0;
+video.pause();
+};
+});
+</script>
+</body>
+</html>

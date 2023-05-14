@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation Examples</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+  <script>
+    function changeText() {
+      var heading = document.getElementById("myHeading");
+      heading.innerHTML = "New Heading";
+    }
+
+    function addElement() {
+      var list = document.getElementById("myList");
+      var newItem = document.createElement("li");
+      newItem.textContent = "New Item";
+      list.appendChild(newItem);
+    }
+
+    function removeElement() {
+      var list = document.getElementById("myList");
+      var lastItem = list.lastElementChild;
+      list.removeChild(lastItem);
+    }
+
+    function toggleHighlight() {
+      var paragraph = document.getElementById("myParagraph");
+      paragraph.classList.toggle("highlight");
+    }
+
+    function changeImage() {
+      var image = document.getElementById("myImage");
+      image.src = "newimage.jpg";
+    }
+  </script>
+</head>
+<body>
+  <h1 id="myHeading">Original Heading</h1>
+  <button onclick="changeText()">Change Heading Text</button>
+
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <button onclick="addElement()">Add Item</button>
+  <button onclick="removeElement()">Remove Last Item</button>
+
+  <p id="myParagraph">This is a paragraph.</p>
+  <button onclick="toggleHighlight()">Toggle Highlight</button>
+
+  <img id="myImage" src="oldimage.jpg" alt="Original Image">
+  <button onclick="changeImage()">Change Image</button>
+</body>
+</html>

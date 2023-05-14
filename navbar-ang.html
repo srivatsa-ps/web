@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <style>
+    .navbar {
+      background-color: #f8f8f8;
+      padding: 10px;
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    .navbar li a {
+      text-decoration: none;
+      color: #333;
+      padding: 5px 10px;
+    }
+    
+    .navbar li a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body ng-controller="myController">
+
+  <div class="navbar">
+    <ul>
+      <li><a href="#/">Home</a></li>
+      <li><a href="#/about">About</a></li>
+      <li><a href="#/services">Services</a></li>
+      <li><a href="#/contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <div ng-view></div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.config(function($routeProvider) {
+      $routeProvider
+        .when('/', {
+          template: '<h1>Welcome to Home Page</h1>'
+        })
+        .when('/about', {
+          template: '<h1>About Us</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'
+        })
+        .when('/services', {
+          template: '<h1>Our Services</h1><ul><li>Service 1</li><li>Service 2</li><li>Service 3</li></ul>'
+        })
+        .when('/contact', {
+          template: '<h1>Contact Us</h1><p>Email: info@example.com<br>Phone: 123-456-7890</p>'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    });
+
+    app.controller('myController', function($scope) {
+
+    });
+  </script>
+
+</body>
+
+</html>

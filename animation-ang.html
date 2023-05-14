@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Animation Demo</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: all 0.5s;
+    }
+    
+    .box.slide-in {
+      transform: translateX(0);
+    }
+    
+    .box.slide-out {
+      transform: translateX(-200px);
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+  <script>
+    angular.module('myApp', ['ngAnimate'])
+      .controller('myCtrl', function($scope) {
+        $scope.showBox = false;
+        
+        $scope.toggleBox = function() {
+          $scope.showBox = !$scope.showBox;
+        };
+      });
+  </script>
+</head>
+<body ng-controller="myCtrl">
+  <button ng-click="toggleBox()">Toggle Box</button>
+  <div class="box" ng-class="{'slide-in': showBox, 'slide-out': !showBox}"></div>
+</body>
+</html>

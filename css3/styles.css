@@ -1,0 +1,47 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .box p {
+    font-size: 18px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ccc;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+  }
+  
+  @keyframes moveBox {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(100px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .box.animated {
+    animation: moveBox 2s infinite;
+  }
+  

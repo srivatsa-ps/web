@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML5 Features Example</title>
+</head>
+<body>
+  <!-- New Structural Elements -->
+  <header>
+    <h1>Welcome to my HTML5 page!</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <h2>Article Title</h2>
+    <p>This is a sample article.</p>
+  </article>
+
+  <section>
+    <h2>Section Title</h2>
+    <p>This is a sample section.</p>
+  </section>
+
+  <!-- Audio -->
+  <audio controls>
+    <source src="audio/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Video -->
+  <video controls>
+    <source src="video/video.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+
+  <!-- Form creation -->
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- Canvas API -->
+  <canvas id="myCanvas" width="200" height="200"></canvas>
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    context.fillStyle = "#FF0000";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  </script>
+
+  <!-- SVG -->
+  <svg width="200" height="200">
+    <circle cx="100" cy="100" r="80" fill="blue" />
+  </svg>
+
+  <!-- Geolocation -->
+  <button onclick="getLocation()">Get Location</button>
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    }
+  </script>
+</body>
+</html>

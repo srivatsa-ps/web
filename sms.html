@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Messaging Service</title>
+  <style>
+    #chatbox {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #ccc;
+      overflow-y: scroll;
+    }
+
+    #messageInput {
+      width: 300px;
+    }
+  </style>
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById("messageInput");
+      var chatbox = document.getElementById("chatbox");
+      var message = messageInput.value;
+
+      if (message.trim() !== "") {
+        var timestamp = new Date().toLocaleTimeString();
+        var sender = "Me";
+        var chatMessage = "[" + timestamp + "] " + sender + ": " + message;
+        var messageElement = document.createElement("div");
+        messageElement.textContent = chatMessage;
+        chatbox.appendChild(messageElement);
+        messageInput.value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Simple Messaging Service</h1>
+  <div id="chatbox"></div>
+  <br>
+  <input type="text" id="messageInput" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+</body>
+</html>

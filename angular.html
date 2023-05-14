@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularJS Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="MyApp">
+  <div ng-controller="ParentController as parent">
+    <h1>{{ parent.message }}</h1>
+    <child-component></child-component>
+  </div>
+
+  <script>
+    angular.module('MyApp', [])
+      .controller('ParentController', function(MessageService) {
+        var vm = this;
+        vm.message = MessageService.getMessage();
+      })
+      .controller('ChildController', function(MessageService) {
+        var vm = this;
+        vm.newMessage = '';
+
+        vm.updateMessage = function() {
+          MessageService.setMessage(vm.newMessage);
+        };
+      })
+      .component('childComponent', {
+        template: `
+          <input type="text" ng-model="$ctrl.newMessage">
+          <button ng-click="$ctrl.updateMessage()">Update Message</button>
+        `,
+        controller: 'ChildController'
+      })
+      .service('MessageService', function() {
+        var message = 'Hello, AngularJS!';
+
+        this.getMessage = function() {
+          return message;
+        };
+
+        this.setMessage = function(newMessage) {
+          message = newMessage;
+        };
+      });
+  </script>
+</body>
+</html>

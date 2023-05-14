@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <style>
+    .layout1 {
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+    
+    .layout2 {
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    
+    .layout3 {
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body ng-controller="myController">
+
+  <button ng-click="switchLayout('layout1')">Layout 1</button>
+  <button ng-click="switchLayout('layout2')">Layout 2</button>
+  <button ng-click="switchLayout('layout3')">Layout 3</button>
+
+  <div ng-class="currentLayout">
+    <h1>Current Layout: {{ currentLayout }}</h1>
+    <p>This is the content for layout {{ currentLayout }}.</p>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myController', function($scope) {
+      $scope.currentLayout = 'layout1';
+
+      $scope.switchLayout = function(layout) {
+        $scope.currentLayout = layout;
+      };
+    });
+  </script>
+
+</body>
+
+</html>

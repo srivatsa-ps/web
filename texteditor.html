@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Text Editor</title>
+  <style>
+    .editor-container {
+      width: 600px;
+      height: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    angular.module('myApp', [])
+      .controller('myCtrl', function($scope) {
+        $scope.editorContent = '';
+        
+        $scope.clearEditor = function() {
+          $scope.editorContent = '';
+        };
+      });
+  </script>
+</head>
+<body ng-controller="myCtrl">
+  <h1>AngularJS Text Editor</h1>
+  
+  <div class="editor-container">
+    <textarea ng-model="editorContent"></textarea>
+  </div>
+  
+  <button ng-click="clearEditor()">Clear Editor</button>
+  
+  <h2>Editor Content:</h2>
+  <div>{{ editorContent }}</div>
+</body>
+</html>
