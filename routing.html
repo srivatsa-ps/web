@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,200;0,400;0,500;0,700;1,400&display=swap');
+
+		* {
+			font-family: 'PT Serif', sans-serif;
+			margin: 0;
+			padding: 0;
+        }
+
+		body {
+			background-color: #FAF6F4;
+		}
+
+		#menu-bar {
+			background-color: white;
+			display: flex;
+			align-items: center;
+		}
+
+		#menu-link ul {
+			list-style: none;
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+		}
+
+		#menu-link {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+		}
+
+		#menu-link img{
+			margin-right: 20px;
+			margin-left: 20px;
+		}
+
+		#menu-link li{
+			margin-left: 20px;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			padding: 40px;
+		}
+
+		a:hover{
+			color: black;
+			font-weight: 600;
+			cursor: pointer;
+		}
+		.heading{
+			font-size: 2rem;
+		}
+	</style>
+
+</head>
+<body ng-app="mainApp">
+	<div id="menu-bar">
+		<h1 class="heading" style="margin-block: 1rem;"><a href='#' class='title'>SupportNet</a></h1>
+		<div id="menu-link">
+			<ul>
+				<li><a href='#!/'>Home</a></li>
+				<li><a href="#!/journal">Journal</a></li>
+				<li><a href="#!/communities">Communities</a></li>
+				<li><a href="#!/meditation">Meditation</a></li>
+				<li><a href='#!/resources'>Resources</a></li>
+			</ul>
+		</div>
+	</div>
+	<div ng-view></div>
+	<p>works!</p>
+	<script src="./app.js"></script>
+</body>
+</html>
